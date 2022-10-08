@@ -1,1 +1,2 @@
-type AppendArgument<Fn, A> = any
+type AppendArgument<Fn, A> = Fn extends (...rest: infer Param) => infer R
+  ? (...rest: [...Param, A]) => R : Fn
